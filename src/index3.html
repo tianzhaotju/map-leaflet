@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>底图&搜索&小工具</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no">
+    <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+
+    <!--    Bige Map-->
+    <link href='http://localhost:9000/bigemap.js/v2.1.0/bigemap.css' rel='stylesheet'/>
+    <script src='http://localhost:9000/bigemap.js/v2.1.0/bigemap.js'></script>
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+    <script src="../node_modules/leaflet-search/src/leaflet-search.js"></script>
+    <script src="../node_modules/leaflet-search/src/leaflet-search-geocoder.js"></script>
+    <link rel="stylesheet" href="../node_modules/leaflet-search/src/leaflet-search.css" />
+    <link rel="stylesheet" href="../node_modules/leaflet-search/src/leaflet-search.mobile.css" />
+    <link rel="stylesheet" href="../node_modules/leaflet-search/examples/style.css" />
+
+    <style>
+        html, body {
+            margin:0;
+            padding:0;
+        }
+        #mapid{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+<!--地图坐标层-->
+<div id="mapid"></div>
+
+
+<script src="../node_modules/leaflet-search/src/leaflet-search.js"></script>
+<script src="../data/geoinfo.js"></script>
+<script>
+
+    var google_terrain = L.tileLayer("http://localhost:9001/bigemap.6vqva9xh/tiles/{z}/{x}/{y}.jpg?access_token=pk.eyJ1IjoiY3VzXzFvZDhtb2lzIiwiYSI6ImNqbDE0eWdzaTdlcTV6NzNnd2pwc3NubGgiLCJ0IjoxfQ.pQrxAvMORZDZMeyt_Di04RbWdZM9KgjewJblaUj9OGE"),
+        google_satellite = L.tileLayer("http://localhost:9001/bigemap.8lu1jfol/tiles/{z}/{x}/{y}.jpg?access_token=pk.eyJ1IjoiY3VzXzFvZDhtb2lzIiwiYSI6ImNqbDE0eWdzaTdlcTV6NzNnd2pwc3NubGgiLCJ0IjoxfQ.pQrxAvMORZDZMeyt_Di04RbWdZM9KgjewJblaUj9OGE");
+        google_street = L.tileLayer("http://localhost:9001/bigemap.astzcmiv/tiles/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiY3VzXzFvZDhtb2lzIiwiYSI6ImNqbDE0eWdzaTdlcTV6NzNnd2pwc3NubGgiLCJ0IjoxfQ.pQrxAvMORZDZMeyt_Di04RbWdZM9KgjewJblaUj9OGE");
+
+    var map = L.map('mapid', {
+        center: [39.13,117.2],
+        zoom: 8,
+        layers: [google_street]
+    });
+
+    // Mercator-based Coordinate Reference System（CRS）
+    var marker = L.marker([39.13,117.2]).addTo(map);
+
+    function onMapClick(e,a,c) {
+        marker.setLatLng(e.latlng);
+        marker.bindPopup("<b>经纬度:</b>"+e.latlng).openPopup();
+    }
+
+    function onMouseMove(e) {
+        L.popup()
+            .setLatLng(e.latlng)
+            .setContent("<b>经纬度:</b>"+e.latlng.toString())
+            .openOn(map);
+
+    }
+
+    map.on('click', onMapClick);
+    map.on('mousemove', onMouseMove);
+
+    var baseMaps = {
+        "地形图": google_terrain,
+        "卫星影像": google_satellite,
+        "电子地图": google_street
+    };
+
+    L.control.layers(baseMaps).addTo(map);
+
+    // 城市搜索框
+    // 安装：
+    // npm init
+    // npm install --save leaflet-search
+
+    var rawData = geoinfo;
+    var data = [];
+    function f(current) {
+        if (current.districts.length!=0){
+            data.push({"loc":[parseFloat(current.center.split(",")[1]),parseFloat(current.center.split(",")[0])],"title":current.name});
+            for(var i in current.districts){
+                f(current.districts[i]);
+            }
+        }
+        else {
+            data.push({"loc":[parseFloat(current.center.split(",")[1]),parseFloat(current.center.split(",")[0])],"title":current.name});
+        }
+    }
+
+    for(var i in rawData){
+        // [纬度,经度]
+        f(rawData[i]);
+    }
+
+    function localData(text, callResponse)
+    {
+        //here can use custom criteria or merge data from multiple layers
+
+        callResponse(data);
+
+        return {	//called to stop previous requests on map move
+            abort: function() {
+                console.log('aborted request:'+ text);
+            }
+        };
+    }
+
+    var controlSearch = new L.Control.Search({
+        sourceData : localData,
+        markerLocation : true,
+        marker:marker,
+        zoom : 14,
+        position : 'topleft',
+        textErr: '没有找到...',
+        textCancel: '取消',
+        textPlaceholder: '查找...',
+    });
+    map.addControl(controlSearch);
+
+
+
+    // 小工具
+
+
+
+
+</script>
+</body>
+</html>

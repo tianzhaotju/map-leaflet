@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a720b488-b588-4722-b238-8540266d50ac" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1WHfVXK4pP3mUJMehyP4tOJ83eJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/data" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\个人文档\项目\天云网\leaflet" />
+      <recent name="D:\个人文档\项目\天云网\leaflet\src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\个人文档\项目\天云网\leaflet\data" />
+      <recent name="D:\个人文档\项目\天云网\leaflet\src" />
+      <recent name="D:\个人文档\项目\天云网\leaflet\search" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a720b488-b588-4722-b238-8540266d50ac" name="Default Changelist" comment="" />
+      <created>1578811465023</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578811465023</updated>
+      <workItem from="1578811468315" duration="423000" />
+      <workItem from="1578813928623" duration="3670000" />
+      <workItem from="1578962692646" duration="17265000" />
+      <workItem from="1580358994488" duration="2935000" />
+      <workItem from="1580822512774" duration="4462000" />
+      <workItem from="1580827284363" duration="6113000" />
+      <workItem from="1580870137277" duration="816000" />
+      <workItem from="1580910023144" duration="737000" />
+      <workItem from="1581144923304" duration="4018000" />
+      <workItem from="1581232836765" duration="5309000" />
+      <workItem from="1582202466086" duration="640000" />
+      <workItem from="1582203173435" duration="3751000" />
+      <workItem from="1582209551641" duration="687000" />
+      <workItem from="1582252367075" duration="3570000" />
+      <workItem from="1582255964738" duration="17400000" />
+      <workItem from="1582684178319" duration="356000" />
+      <workItem from="1582684648801" duration="202000" />
+      <workItem from="1582686582278" duration="190000" />
+      <workItem from="1582687710770" duration="122000" />
+      <workItem from="1582688004416" duration="1863000" />
+      <workItem from="1582700368020" duration="282000" />
+      <workItem from="1582700684553" duration="225000" />
+      <workItem from="1582701960993" duration="43000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="233" y="4" key="#Notifications" timestamp="1582701031501">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="4" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1582701031501" />
+    <state x="95" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582701043806">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="95" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1582701043806" />
+    <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582275917570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="90" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1582275917570" />
+    <state x="421" y="99" key="FileChooserDialogImpl" timestamp="1582209302026">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1582209302026" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1582701110863">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1582701110863" />
+  </component>
+</project>
